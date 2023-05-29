@@ -8,8 +8,7 @@ def get_circulating_supply():
     total_supply = get_total_supply()
     burned_supply = get_burned_supply()
     circulating_supply = total_supply - burned_supply
-    circulating_supply_in_bnb = circulating_supply / 1e18  # Convert to BNB
-    return jsonify(circulating_supply=circulating_supply_in_bnb)
+    return jsonify(status='1', message='OK', result=str(circulating_supply))
 
 def get_total_supply():
     response = requests.get('https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0x922722e9ef614ec9a3e94b78496e92abfbb5a624&apikey=YEMEFWMH1EGKM3IG79DI7UB2FRBQ9KFAFD')
